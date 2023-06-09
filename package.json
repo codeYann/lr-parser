@@ -1,0 +1,21 @@
+{
+	"name": "lr-parser",
+	"version": "1.0.0",
+	"description": "Creating a python lr-parser for a simple grammar.",
+	"main": "index.js",
+	"scripts": {
+		"start": "tsx src/main.ts",
+		"start:dev": "tsx watch src/main.ts",
+		"format": "npx prettier --write .",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^20.2.5",
+		"prettier": "2.8.8",
+		"tsx": "^3.12.7",
+		"typescript": "^5.1.3"
+	}
+}
