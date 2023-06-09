@@ -1,3 +1,10 @@
 <S> = "if" <E> "then" <C> | <C>
 <E> = "a"
 <C> = "b"
+
+```
+if -> IF_STATEMENT
+then -> THEN_STATEMENT
+a -> IDENTIFIER
+b -> IDENTIFIER
+```
