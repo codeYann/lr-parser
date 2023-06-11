@@ -1,6 +1,14 @@
+<S'> = <S>
 <S> = "if" <E> "then" <C> | <C>
 <E> = "a"
 <C> = "b"
+
+```
+S' -> S
+S -> if E then C | C
+E -> a
+C -> B
+```
 
 ```
 if -> IF_STATEMENT
