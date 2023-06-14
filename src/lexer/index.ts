@@ -1,3 +1,4 @@
-import { Lexer, Token } from "./lexer";
+import { Lexer } from "./lexer";
+import { Token } from "./types";
 
 export { Lexer, Token };
