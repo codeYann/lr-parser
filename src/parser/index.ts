@@ -1,4 +1,4 @@
-import { Actions } from "./lrTable";
-import { Node, Parser } from "./parser";
+import { Parser } from "./parser";
+import { Actions, Node } from "./types";
 
 export { Actions, Node, Parser };
