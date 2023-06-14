@@ -3,24 +3,20 @@ export type Actions = {
 };
 
 export class ParsingTable {
-	private actionTable: Actions[][];
-	private productionTable: number[][];
+	public actionTable: Actions[][];
+	public productionTable: number[][];
 
 	constructor() {
-		this.actionTable = new Array(8)
+		this.actionTable = new Array(9)
 			.fill([])
 			.map(() => new Array(5).fill({}));
-		this.productionTable = new Array(8)
+
+		this.productionTable = new Array(9)
 			.fill([])
 			.map(() => new Array(3).fill(0));
-	}
 
-	public getActionTable(): Actions[][] {
-		return [...this.actionTable];
-	}
-
-	public getProductionTable(): number[][] {
-		return [...this.productionTable];
+		this.fillActionTable();
+		this.fillProductionTable();
 	}
 
 	public fillActionTable(): void {
