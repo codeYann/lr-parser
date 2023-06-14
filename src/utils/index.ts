@@ -1,5 +1,5 @@
 import fs from "fs";
-import { Stream, pipeline } from "stream";
+import { pipeline } from "stream";
 import { promisify } from "util";
 
 const promisedPipeline = promisify(pipeline);
@@ -7,15 +7,14 @@ const promisedPipeline = promisify(pipeline);
 export async function readFileContent(path: string): Promise<string> {
 	try {
 		const chunks: string[] = [];
-		const writableStream = new Stream.Writable({
-			write(chunk, _, cb) {
-				chunks.push(chunk);
-				cb();
-			},
-		});
 		await promisedPipeline(
 			fs.createReadStream(path, { encoding: "utf-8" }),
-			writableStream
+			async function* (source) {
+				for await (const chunk of source) {
+					chunks.push(chunk);
+					yield chunk;
+				}
+			}
 		);
 		return chunks.join("");
 	} catch (error) {
