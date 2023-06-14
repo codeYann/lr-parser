@@ -1,3 +1,5 @@
+import { Token } from "./types";
+
 /**
  * Grammar:
  * S -> if E then C | C
@@ -14,11 +16,6 @@
  * FINISH: $
  * EOF: null
  */
-
-export type Token = {
-	type: string;
-	value: string;
-};
 
 export class Lexer {
 	private input: string;
