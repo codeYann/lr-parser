@@ -11,6 +11,7 @@
  * THEN: then
  * IDENTIFIER: a
  * IDENTIFIER: b
+ * FINISH: $
  * EOF: null
  */
 
@@ -88,16 +89,18 @@ export class Lexer {
 		return null;
 	}
 
-	// Recursive tokenizing
-	private recursiveTokenize(): Token[] {
-		const token = this.getNextToken();
-		if (token !== null) {
-			return [token, ...this.recursiveTokenize()];
+	private tokenizeFunc(): Token[] {
+		const tokens: Token[] = [];
+		let token = this.getNextToken();
+		while (token !== null) {
+			tokens.push(token);
+			token = this.getNextToken();
 		}
-		return [];
+		return tokens;
 	}
-
 	public tokenize(): Token[] {
-		return this.recursiveTokenize();
+		// Adding a $ sign to the end of the input
+		let tokens = this.tokenizeFunc();
+		return [...tokens, { type: "FINISH", value: "$" }];
 	}
 }
