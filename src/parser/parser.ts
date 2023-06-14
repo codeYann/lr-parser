@@ -1,10 +1,6 @@
-import { ParsingTable } from "./lrTable";
+import { Node } from "./types";
 import { Token } from "../lexer";
-
-export type Node = {
-	value: string;
-	children: Node[];
-};
+import { ParsingTable } from "./lrTable";
 
 export class Parser {
 	private parsingTable: ParsingTable;
