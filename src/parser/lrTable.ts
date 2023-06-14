@@ -1,7 +1,4 @@
-export type Actions = {
-	[key: string]: number;
-};
-
+import { Actions } from "./types";
 export class ParsingTable {
 	public actionTable: Actions[][];
 	public productionTable: number[][];
