@@ -1,5 +1,6 @@
 import { Lexer } from "./lexer";
 import { readFileContent } from "./utils";
+import { Parser } from "./parser";
 import path from "path";
 
 (() => {
@@ -11,10 +12,12 @@ import path from "path";
 
 		try {
 			const tokens = lexer.tokenize();
-			tokens.forEach((token) => {
-				console.log(token);
-			});
-
+			try {
+				const parser = new Parser(tokens);
+				parser.parser();
+			} catch (error) {
+				console.error(error);
+			}
 		} catch (error) {
 			console.error(error);
 		}
